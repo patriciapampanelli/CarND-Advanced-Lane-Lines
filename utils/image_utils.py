@@ -3,7 +3,10 @@ def read_image(filename, image_color):
 	import cv2
 	# print("Opencv version: {}".format(cv2.__version__))
 	
-	image = cv2.imread(filename, image_color)
+	import matplotlib.image as mpimg
+	
+	image = mpimg.imread(filename)
+	#image = cv2.imread(filename, image_color)
 	return image    
 
 def read_images(folder, extensions = ['.jpg'], image_color = 1):
