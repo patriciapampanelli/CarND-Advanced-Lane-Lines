@@ -8,7 +8,6 @@ import numpy as np
 def convert_to_gray(images):
 	images_gray = []
 	for image in images:	
-		# Convert BGR to HSV
 		gray = cv2.cvtColor(image, cv2.COLOR_RGB2GRAY)
 		images_gray.append(gray)
 	
@@ -28,6 +27,7 @@ def sobel_operator(image, orient='x', thresh_min=0, thresh_max=255, sobel_kernel
 		
 	# Rescale back to 8 bit integer
 	scaled_sobel = np.uint8(255*abs_sobel/np.max(abs_sobel))
+	#scaled_sobel = np.max(abs_sobel)/255 
 	# Create a copy and apply the threshold
 	binary_output = np.zeros_like(scaled_sobel)
 	# Here I'm using inclusive (>=, <=) thresholds, but exclusive is ok too
