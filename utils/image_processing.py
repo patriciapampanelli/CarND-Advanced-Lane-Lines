@@ -100,6 +100,26 @@ def convert_rgb_to_hsv(image):
 	V = hsv[:,:,2]
 	
 	return H, S, V
+
+
+def convert_rgb_to_luv(image):
+	
+	luv = cv2.cvtColor(image, cv2.COLOR_RGB2Luv)
+	L = luv[:,:,0]
+	U = luv[:,:,1]
+	V = luv[:,:,2]
+	
+	return L, U, V	
+	
+
+def convert_rgb_to_lab(image):
+	
+	lab = cv2.cvtColor(image, cv2.COLOR_RGB2Lab)
+	L = lab[:,:,0]
+	A = lab[:,:,1]
+	B = lab[:,:,2]
+	
+	return L, A, B		
 	
 	
 def perspective_transform(image):
